@@ -8,7 +8,7 @@ from app.worker.queue_monitor import monitor_queue_size
 app = FastAPI(title="GetJobs IA Service", version="1.0.0")
 
 # Instrumentação do Prometheus
-Instrumentator().instrument(app).bootstrap()
+Instrumentator().instrument(app).expose(app)
 
 @app.on_event("startup")
 async def startup_event():

@@ -1,0 +1,5 @@
+[run]
+omit =
+    app/grpc_server/ia_service_pb2.py
+    app/grpc_server/ia_service_pb2_grpc.py
+    tests/*

@@ -13,3 +13,11 @@ python-multipart
 prometheus-fastapi-instrumentator
 prometheus-client
 python-json-logger
+
+# Testing
+pytest
+pytest-asyncio
+pytest-cov
+pytest-mock
+grpcio-testing
+httpx
