@@ -1,0 +1,14 @@
+model_list:
+  - model_name: smart-match-delegate
+    litellm_params:
+      model: gemini/gemini-1.5-flash
+      api_key: "os.environ/GEMINI_API_KEY"
+  - model_name: cv-parser-delegate
+    litellm_params:
+      model: gemini/gemini-1.5-flash
+      api_key: "os.environ/GEMINI_API_KEY"
+router_settings:
+  routing_strategy: simple-shuffle
+  redis_url: "os.environ/REDIS_URL"
+  retry_after_429: true
+  num_retries: 3

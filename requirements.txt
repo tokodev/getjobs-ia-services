@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+litellm
+langsmith
+grpcio
+grpcio-tools
+pydantic
+pydantic-settings
+python-dotenv
+redis
+bullmq
+python-multipart
+prometheus-fastapi-instrumentator
+prometheus-client
+python-json-logger

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ia_service;
+
+service AIService {
+  rpc ParseCV (CVRequest) returns (CVResponse);
+  rpc GetInstantMatch (MatchRequest) returns (MatchResponse);
+}
+
+message CVRequest {
+  string cv_text = 1;
+}
+
+message CVResponse {
+  string json_data = 1;
+}
+
+message MatchRequest {
+  string cv_json = 1;
+  string job_description = 2;
+}
+
+message MatchResponse {
+  float score = 1;
+  string reasoning = 2;
+}
