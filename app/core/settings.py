@@ -20,9 +20,15 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/getjobs?schema=public"
     
     # LangSmith
-    LANGCHAIN_TRACING_V2: bool = False
+    LANGSMITH_TRACING: bool = True
+    LANGSMITH_API_KEY: str = ""
+    LANGSMITH_PROJECT: str = "GetJobs"
+    LANGSMITH_ENDPOINT: str = "https://api.smith.langchain.com"
+    
+    # Compatibilidade com SDKs antigos (LangChain)
+    LANGCHAIN_TRACING_V2: str = "true"
     LANGCHAIN_API_KEY: str = ""
-    LANGCHAIN_PROJECT: str = "getjobs-ia-services"
+    LANGCHAIN_PROJECT: str = "GetJobs"
     LANGCHAIN_ENDPOINT: str = "https://api.smith.langchain.com"
     
     # AI Keys (extras)

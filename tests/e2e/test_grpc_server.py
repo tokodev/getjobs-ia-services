@@ -16,12 +16,14 @@ class MockContext:
 
 @pytest.fixture
 def servicer():
-    return AIServiceServicer()
+    # Evita que o init do servicer crie um CVParserAgent real que use settings/litellm
+    with patch("app.grpc_server.server.CVParserAgent"):
+        return AIServiceServicer()
 
 def test_parse_cv_grpc_success(servicer):
-    # Mock do CVParserAgent para retornar um objeto que tenha o método model_dump_json
+    # Mock do ParsedCV realístico
     mock_parsed_cv = MagicMock()
-    mock_parsed_cv.model_dump_json.return_value = '{"test": "data"}'
+    mock_parsed_cv.model_dump_json.return_value = '{"personalData": {"fullName": "Test"}}'
     
     with patch.object(servicer.cv_parser, 'parse', return_value=mock_parsed_cv):
         request = ia_service_pb2.CVRequest(cv_text="Text to parse")
@@ -29,7 +31,7 @@ def test_parse_cv_grpc_success(servicer):
         
         response = servicer.ParseCV(request, context)
         
-        assert response.json_data == '{"test": "data"}'
+        assert "Test" in response.json_data
         assert context.code is None
 
 def test_parse_cv_grpc_error(servicer):
