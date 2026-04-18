@@ -17,7 +17,7 @@ O `ia-services` não roda mais de forma isolada; ele agora faz parte da rede ext
 
 ### 2. Sincronização de Credenciais (`.env`)
 As chaves de API e senhas foram extraídas e sincronizadas com os serviços da infraestrutura:
-- **Redis Password:** `Redis@2025` (conforme `infra/.env`).
+- **Redis Password:** `Redis2026` (conforme `infra/.env`).
 - **IA Keys:** Gemini e Groq Keys sincronizadas para garantir que o LiteLLM funcione corretamente.
 - **Database URL:** Apontando para o banco de dados `getjobs` no container Postgres da infra.
 

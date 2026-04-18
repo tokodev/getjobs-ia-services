@@ -1,4 +1,5 @@
-CV_ANALYSIS_PROMPT = """You are an expert ETL specialist for unstructured CV data.
+CV_ANALYSIS_PROMPT = """Return ONLY the JSON object. Do not explain, do not think out loud, do not include any text before or after the JSON.
+You are an expert ETL specialist for unstructured CV data.
 Convert the raw CV text below into a rigorously mapped JSON object.
 
 CRITICAL INSTRUCTIONS:
